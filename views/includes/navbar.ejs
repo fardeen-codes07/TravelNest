@@ -1,0 +1,69 @@
+<style>
+  .btn-search{
+    background-color:red;
+    color:white;
+    border-radius:25px;
+    padding:0 1rem 0 1rem;
+  }
+  .btn-search:hover{
+    background-color:red;
+    color:white;
+
+  }
+  .btn-search i{
+    display:inline;
+    margin-right:0.5rem;
+  }
+  .search-container {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+</style>
+
+<nav class="navbar navbar-expand-md bg-body-light sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/listings"><i class="fa-regular fa-compass"></i></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/listings">Explore</a>
+        </li>
+      </ul>
+    </div>
+    <div class="search-container">
+      <form class="d-flex" role="search">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+      <button class="btn btn-search" 
+      type="submit"
+      placeholder="Search destinations">Search</button>
+    </form>
+    </div>
+    <div class="ms-auto">
+      <ul class="navbar-nav">
+        <% if(!currUser) {%>
+        <li class="nav-item">
+          <a class="nav-link active"  href="/signup"><b>Sign up</b></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/login"><b>Log in</b></a>
+        </li>
+        <%}%>
+        <% if(currUser) {%>
+        <li class="nav-item">
+          <a class="nav-link" href="/listings/new"><b>Add new Listing</b></a>
+        </li>
+        <li class="nav-item">
+          <a class="
+          nav-link" href="/logout"><b>Log out</b></a>
+        </li>
+        <%}%>
+      </ul>
+    </div>
+  </div>
+</nav>
