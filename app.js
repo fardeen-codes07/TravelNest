@@ -32,7 +32,9 @@ async function main(){
 app.set("view engine","ejs");
 app.set("views",path.join(__dirname,"views"));
 app.set("layouts","layouts/boilerplate")
-app.use(express.urlencoded({extended:true}));
+app.use((req, res, next) => {
+    res.locals.currentPath = req.path;next();
+});
 app.use(methodOverride("_method"));
 app.engine("ejs",ejsMate);
 app.use(express.static(path.join(__dirname,"/public")));
